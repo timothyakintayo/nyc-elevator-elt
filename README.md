@@ -39,31 +39,35 @@ Key Questions
 ---
 
 ## 📁 Project Structure
+```
 nyc-elevator-etl/
 │
 ├── pipeline/
-│ ├── etl.py
-│ ├── export_parquet.py
-│ ├── geo_analysis.py
-│ └── init.py
+│   ├── __init__.py
+│   ├── etl.py
+│   ├── export_parquet.py
+│   └── geo_analysis.py
+│
+├── sql/
+│   ├── avg_closing_days.sql
+│   ├── complaints_by_borough.sql
+│   ├── complaints_by_month.sql
+│   ├── complaints_by_quarter.sql
+│   ├── resolution_time_hours.sql
+│   └── total_complaints.sql
+│
+├── insights/
+│   └── elevator_complaint_insights.md
 │
 ├── docker/
-│ └── Dockerfile
-├── data/ # ignored by git
+│   └── Dockerfile
+│
+├── data/                # ignored by git
+├── .env                 # ignored by git
+├── .gitignore
 ├── requirements.txt
-├── README.md
-├── .env # ignored by git
-└── .gitignore
-└── sql/
-	├── avg_closing_days.sql
-	├── complaints_by_borough.sql
-	├── complaints_by_month.sql
-	├── complaints_by_quarter.sql
-	├── resolution_time_hours.sql
-	├── total_complaints.sql	
-└── insights/
-  └── elevator_complaint_insights.md
-
+└── README.md
+```
 
 ---
 ## Run Locally
