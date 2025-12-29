@@ -18,7 +18,7 @@ Key Questions
 - What are the other highly reported service requests for expansion opportunities for the business?
 - What is a suitable place/location for the headquarter (HQ)?
 
-Answers to this business questions are provided in the analytics folder in this repository.
+Answers to these business questions are provided in the analytics folder in this repository.
 
 ---
 
