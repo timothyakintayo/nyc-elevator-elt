@@ -74,7 +74,7 @@ nyc-elevator-etl/
 
 ---
 
-## 🚀 Run Locally
+## Run Locally
 ```bash
 # Install dependencies
 pip install -r requirements.txt
@@ -112,6 +112,16 @@ After running the pipeline, you'll find:
 
 ## 📝 Insights & Analysis
 
-Business insights are documented in:
+🌍 Geographic Insights:
+The analysis shows a hotspot at Upper Manhattan/Bronx border with 57 complaints in a single bin which is perfect for HQ placement!
+![NYC Elevator Hotspot](docs/manhattan_elevator_heatmap.png) 
 
-- **`analytics/elevator_complaint_insights.md`** — Complaint rend analysis and strategic recommendations for stakeholders
+Yearly Trend Analysis:
+An analysis of the trend of complaint across various categories led to the recognition of the top 10 complaint types between the year 2010 to year 2023. This is to present business with alternative service requestopportunities that can be explored or combined with elevator service. The analysis revealed the huge potential that lies in creating an HVAC service in the area due to the high
+heat/hot water complaints. This is presented in the line chart ![Top 10 Complaint Types](docs/complaint_trends_top10.png) 
+
+Full information about this insight is documented in:
+
+- **`analytics/elevator_complaint_insights.md`** — Complaint trend analysis and strategic recommendations for stakeholders
+
+
