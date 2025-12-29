@@ -70,25 +70,45 @@ nyc-elevator-etl/
 ```
 
 ---
-## Run Locally
+
+## 🚀 Run Locally
 ```bash
+# Install dependencies
 pip install -r requirements.txt
+
+# Run the ETL pipeline
 python pipeline/etl.py
 
-Run with Docker
+# Export to Parquet
+python pipeline/export_parquet.py
+
+# Generate geospatial analysis
+python pipeline/geo_analysis.py
+```
+
+## 🐳 Run with Docker
 ```bash
-docker build -t elevator-etl .
+# Build the image
+docker build -t elevator-etl ./docker
+
+# Run the container
 docker run --env-file .env elevator-etl
+```
 
-Outputs
-clean_elevator_2024.csv — cleaned dataset
+## 📊 Outputs
 
-clean_elevator_2024.parquet — Parquet version for analytics
+After running the pipeline, you'll find:
 
-manhattan_elevator_heatmap.png — geospatial visualization
+- **`data/clean_elevator_2024.csv`** — Cleaned dataset
+- **`data/clean_elevator_2024.parquet`** — Parquet format for analytics
+- **`manhattan_elevator_heatmap.png`** — Geospatial heatmap visualization
+- **`complaint_analysis_by_year.csv`** — Yearly trend analysis
 
 ---
 
-## Insights
-complaint_trends.md
-elevator_complaint_insights.md
+## 📝 Insights & Analysis
+
+Business insights are documented in:
+
+- **`insights/complaint_trends.md`** — Temporal trend analysis
+- **`insights/elevator_complaint_insights.md`** — Strategic recommendations for stakeholders
