@@ -1,0 +1,7 @@
+duckdb
+pandas
+requests
+sodapy
+python-dotenv
+numpy
+matplotlib
