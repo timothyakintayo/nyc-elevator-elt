@@ -104,6 +104,7 @@ After running the pipeline, you'll find:
 - **`data/clean_elevator_2024.csv`** — Cleaned dataset
 - **`data/clean_elevator_2024.parquet`** — Parquet format for analytics
 - **`manhattan_elevator_heatmap.png`** — Geospatial heatmap visualization and map output to locate the head quarter
+- **`complaint_trends_top10.png`** — Line chart of the trend of other complaint types for other service request opportunities
 - **`complaint_analysis_by_year.csv`** — Yearly trend analysis and visualization of top ten complaints
 
 ---
@@ -112,4 +113,4 @@ After running the pipeline, you'll find:
 
 Business insights are documented in:
 
-- **`insights/complaint_trends.md`** — Complaint rend analysis and strategic recommendations for stakeholders
+- **`analytics/elevator_complaint_insights.md`** — Complaint rend analysis and strategic recommendations for stakeholders

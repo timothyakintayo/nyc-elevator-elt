@@ -7,10 +7,14 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from dotenv import load_dotenv
 
+
 # STEP 2: Set Constants
 DB_PATH = "nyc_elevator_elt.duckdb"
 RADIUS_MILES = 1.0
 SORT_YEAR = "2022"
+OUTPUT_DIR = "insights"
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+
 
 # STEP 3: Connect to Database and fetch data
 con = duckdb.connect(DB_PATH, read_only=True)
@@ -128,7 +132,10 @@ ax.set_title("Manhattan Elevator Requests — Heat Map (SQL Bin HQ)")
 ax.set_xlabel("Longitude")
 ax.set_ylabel("Latitude")
 plt.tight_layout()
-fig.savefig("manhattan_elevator_heatmap.png", dpi=200)
+fig.savefig(
+    os.path.join(OUTPUT_DIR, "manhattan_elevator_heatmap.png"),
+    dpi=200
+)
 print("Saved heat map to manhattan_elevator_heatmap.png")
 
 
