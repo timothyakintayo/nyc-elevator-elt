@@ -19,8 +19,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY pipeline/ ./pipeline/
 COPY sql/ ./sql/
 
-# Create output directories inside container
+# Create output directories in container
 RUN mkdir -p data insights
 
-# Default command: run your ETL (change if needed)
+# Default command: run your ETL
 CMD ["python", "pipeline/etl.py"]
