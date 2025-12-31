@@ -156,7 +156,7 @@ heat/hot water complaints. This is presented in the line chart ![Top 10 Complain
 
 Full information about this insight is documented in:
 
-- **`analytics/elevator_complaint_insights.md`** — Complaint trend analysis and strategic recommendations for stakeholders.
+[analytics/elevator_complaint_insights.md](analytics/elevator_complaint_insights.md) — Complaint trend analysis and strategic recommendations for stakeholders.
 
 
 ## Scalability & Reusability
