@@ -1,8 +1,12 @@
 # NYC Elevator ELT Pipeline and Complaint Analysis
 ![Elevator](docs/elevator.jpg)
 
-This project analyzes elevator complaints across New York City using the official NYC Open Data API. It includes a fully reproducible ELT pipeline, data cleaning, and geospatial analytics.
 
+# Project Overview
+This project implements a reproducible ELT pipeline that ingests municipal service complaint data from a public API, cleans and models the data, and produces analytics-ready datasets for business and geospatial analysis.
+Although demonstrated using NYC elevator complaints, the pipeline is city-agnostic and can be reused for other municipal open-data platforms with minimal configuration changes.
+
+---
 # Business Problem
 ## Business Context
 Building maintenance companies in NYC need to identify high-density complaint areas to optimize service coverage and reduce response times. This analysis provides data-driven insights for strategic placement of repair hubs.
@@ -32,12 +36,39 @@ Answers to these business questions are provided in the analytics folder in this
 
 ---
 
+
 ## Pipeline Steps
-1. Fetch elevator complaints from NYC Open Data using API
-2. Normalize and clean 50+ messy system-generated columns
-3. Store results in DuckDB
+1. Fetch elevator complaints from NYC Open Data using API.
+2. Normalize and clean 50+ messy system-generated columns.
+3. Store results in DuckDB.
 4. Compute feature: `closed_in_days` (days to resolve a complaint)
-5. Export data for analytics & geospatial work
+5. Export data for analytics & geospatial work.
+
+---
+
+## Pipeline Architecture
+Data Flow:
+NYC Open Data API
+→ Python ELT (data cleaning, feature engineering, validation)
+→ DuckDB (analytics tables)
+→ SQL analysis
+→ Visualizations & geospatial insights
+![Pipeline architecture](docs/elt_pipeline_diagram.drawio.png) 
+
+---
+
+## Data Validation & Quality Checks
+Basic data quality checks are applied during the ELT process to ensure analytical correctness:
+
+- Validated non-null complaint creation and closure timestamps.
+
+- Ensured complaint closure dates occur after creation dates.
+
+- Verified non-negative resolution time calculations.
+
+- Confirmed successful ingestion with minimum row count checks.
+
+These validations make the pipeline suitable for automated execution and future CI integration.
 
 ---
 
@@ -124,6 +155,38 @@ heat/hot water complaints. This is presented in the line chart ![Top 10 Complain
 
 Full information about this insight is documented in:
 
-- **`analytics/elevator_complaint_insights.md`** — Complaint trend analysis and strategic recommendations for stakeholders
+- **`analytics/elevator_complaint_insights.md`** — Complaint trend analysis and strategic recommendations for stakeholders.
 
 
+## Scalability & Reusability
+The pipeline was designed with scalability and reuse in mind:
+
+- API endpoint and credentials configured via environment variables.
+
+- Modular pipeline structure separating ingestion, transformation, and analytics.
+
+- DuckDB used for fast, low-overhead analytical queries on large datasets.
+
+- SQL-based aggregations for efficient computation and reduced memory usage.
+
+- Containerized with Docker for consistent local and cloud execution.
+
+This design allows the pipeline to be adapted to other city-level datasets across Europe and beyond.
+
+---
+
+## Performance
+- Records processed: 22,507 complaints (2024.)
+
+- End-to-end runtime: ~2 minutes on a local machine.
+
+- Storage formats: CSV (cleaned) and Parquet (analytics-ready).
+
+---
+
+## Future Improvements
+- Add automated CI pipeline to run validation checks on each commit.
+
+- Extend pipeline to support incremental loads and historical backfills.
+
+- Deploy DuckDB analytics layer to cloud storage (S3-compatible).
